@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>USERS</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<link rel="stylesheet" href="{%static 'css/styles.css'%}">
+</head>
+<body>
+	<nav>
+		<div>
+			<a href="/">Inicio</a>
+		</div>
+		<div>
+			{%if request.user.is_authenticated%}
+			<a href="{%url 'accounts:logout'%}">LogOut</a>
+			{%else%}
+			<a href="{%url 'accounts:login'%}">LogIn</a>
+			<a href="{%url 'accounts:registro'%}">Register</a>
+			{%endif%}
+		</div>
+	</nav>
+	<div class="main">
+		{%block content%}
+		{%endblock content%}
+	</div>
+	
+	
+</body>
+</html>

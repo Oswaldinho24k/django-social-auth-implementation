@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class='log-container'>
+	{%if request.user.is_authenticated%}
+	Saquece
+	<meta http-equiv="refresh" content="0; url=http://localhost:8000/accounts/profile" />
+	{%else%}
+	<div>
+		<h1 align="center">Inicia sesión</h1>
+
+		<article>
+			<a href="{% url 'social:begin' 'google-oauth2' %}">Google+</a>
+			<a href="{% url 'social:begin' 'github' %}">Github</a>
+			<a href="{% url 'social:begin' 'twitter' %}">Twitter</a>
+			<a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
+			
+			<form action="{%url 'accounts:login'%}" method="post">
+				{%csrf_token%}
+				<div >
+				{{form.as_p}}
+
+				<input type="hidden" name="next" value="{{next}}"> 
+				<button  type="submit" >Iniciar Sesión</button>
+				</div>
+			</form>
+
+			<h6 align="center">
+			¿No tienes cuenta?,  <a href="{%url 'accounts:registro'%}">Regístrate</a>
+			</h6>
+		</article>
+	</div>
+
+	{%endif%}
+</div>
+
+{%endblock content%}

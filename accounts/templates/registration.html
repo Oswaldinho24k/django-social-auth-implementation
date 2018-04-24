@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+<section class="log-container">
+	<div>
+		<h3 align="center" style="padding-top:5%;">Quieres stalkear???, regístrate!!</h3>
+		<article >
+			<div>
+
+
+				<form action="{%url 'accounts:registro'%}" method="post">
+				  {%csrf_token%}
+				  {{form.as_p}}
+
+				<button type="submit">Crear Usuario</button>
+				</form>
+				<h6 align="center">
+			¿Ya tienes cuenta?,  <a href="{%url 'accounts:login'%}">Inicia</a>
+			</h6>
+			</div>
+		</article>
+	</div>
+</section>
+{%endblock%}

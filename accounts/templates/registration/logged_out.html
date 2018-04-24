@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{% block content %}
+<div class="log-container">
+	<div>
+		<h1>Sesion Cerrada</h1>
+		<p>Tu sesión se ha cerrado con exito.</p>
+		<p>Pero puedes volver a entrar <a href="{%url 'accounts:login'%}">aquí</a></p>
+	</div>
+	
+</div>
+{% endblock content %}
